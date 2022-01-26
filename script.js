@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+const gridContainer = document.querySelector('.grid-container');
 
 for (let i = 1; i <= 16; i++) {
     let rowDiv = document.createElement('div');
@@ -8,13 +8,30 @@ for (let i = 1; i <= 16; i++) {
         rowDiv.appendChild(columnDiv);
     }
     rowDiv.classList.add('row');
-    container.appendChild(rowDiv);
+    gridContainer.appendChild(rowDiv);
 }
 
 let blocks = document.querySelectorAll('.block');
+let penEnabled = true;
+
+const colorPicker = document.querySelector('.color-picker');
+
+let color = colorPicker.getAttribute('value');
+
+document.addEventListener('keydown', e => {if (e.code === 'KeyF') penEnabled = !penEnabled;});
+
+colorPicker.addEventListener('change', changeColor);
+
+function changeColor () {
+    color = colorPicker.value;
+    console.log(`Changed color to ${color}!`);
+}
 
 blocks.forEach(block => block.addEventListener('mouseover', handleBlockHover));
 
 function handleBlockHover (e) {
-    this.style.backgroundColor = "blue";
+    if (penEnabled) {
+        this.style.backgroundColor = color;
+        console.log(`Attempted to change color to ${color}`);
+    }
 }
