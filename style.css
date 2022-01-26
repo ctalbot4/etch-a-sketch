@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    flex-flow: row;
+}
+
+.block {
+    background-color: red;
+    width: 2px;
+    height: 2px;
+}
