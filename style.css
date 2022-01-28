@@ -50,6 +50,7 @@ body {
     display: flex;
     flex-flow: column;
     align-items: center;
+    padding-top: 20px;
 }
 
 .slider {
