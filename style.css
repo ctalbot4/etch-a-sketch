@@ -1,9 +1,18 @@
+body {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
+    background-color: rgb(235, 235, 235);
+    color: rgb(90, 90, 90);
+}
+
 .grid-container {
     width: 500px;
     height: 500px;
     display: flex;
     flex-flow: column;
-    background-color: rgb(216, 216, 216);
+    background-color: white;
+    flex: 0 0 auto;
 }
 
 .row {
@@ -17,15 +26,53 @@
     flex: 1 0 1px;
 }
 
+.controls-container {
+    margin: 0 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.color-picker {
+    opacity: 0;
+}
+
+.color-picker-container, .color-picker {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+}
+
+.color-picker-container {
+    margin-bottom: 10px;
+    border-style: solid;
+    border-color: rgb(92, 92, 92);
+    border-width: 1px;
+}
+
 .mode-container {
     display: flex;
     flex-flow: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.mode-container div button {
-    width: 100%;
+button {
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(90, 90, 90);
+    color: rgb(90, 90, 90);
+    cursor: pointer;
 }
 
 .selected {
-    background-color: darkgray;
+    background-color: rgb(90, 90, 90);
+    color: white;
 }

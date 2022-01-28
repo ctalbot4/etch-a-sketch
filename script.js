@@ -27,8 +27,9 @@ createGrid(rowCount, rowCount);
 let penEnabled = true;
 
 const colorPicker = document.querySelector('.color-picker');
+const colorPickerContainer = document.querySelector('.color-picker-container');
 
-let color = colorPicker.getAttribute('value');
+// let color = colorPicker.getAttribute('value');
 
 document.addEventListener('keydown', e => {
     if (e.code === 'KeyF') {
@@ -41,8 +42,11 @@ colorPicker.addEventListener('input', changeColor);
 
 function changeColor () {
     color = colorPicker.value;
+    colorPickerContainer.style.backgroundColor = color;
     console.log(`Changed pen color to ${color}`);
 }
+
+changeColor();
 
 function handleBlockHover (e) {
     if (penEnabled) {
@@ -77,7 +81,8 @@ const eraserModeButton = document.querySelector('.eraser-button');
 let mode = 'color';
 
 function selectButton (button) {
-    Array.from(button.parentNode.parentNode.children).forEach(node => node.querySelector('button').classList.remove('selected'));
+    Array.from(button.parentNode.parentNode.children).forEach(
+            node => node.querySelector('button').classList.remove('selected'));
     button.classList.add('selected');
 }
 
@@ -103,7 +108,8 @@ const clearButton = document.querySelector('.clear-button');
 
 clearButton.addEventListener('click', () => {
     createGrid(rowCount, rowCount)
-    selectButton(colorModeButton);
+    // selectButton(colorModeButton);
+    // mode = 'color';
 });
 
 function getRandomColor() {
